@@ -31,9 +31,10 @@ public class Employee {
         this.salary = salary;
         this.department = department;
     }
-
+//formats the list
     public String getDetails() {
-        return getFullname() + "\t" + department + "\t" + salary;
+        String myStr = "%-25s%-5d%-15s%-5.0f\n";
+        return String.format(myStr, getFullname(), age, department, salary);
     }
 
     public void increaseSalary(double percent) {
@@ -81,6 +82,7 @@ public class Employee {
     public int getId() { return id; }
 
     public String getDepartment() { return department; }
+
 
     private static Random R = new Random();
     private static String randomDepartment() {
