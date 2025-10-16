@@ -1,19 +1,15 @@
 package collections;
-
 import java.util.*;
-
 import static collections.Employee.getSomeEmployees;
-
 public class EmployeeTest {
 
     public static void main(String[] args) {
         List<Employee> employees = Employee.getSomeEmployees();
 
         // All employees
-//        for (Employee emp : employees) {
-//            System.out.printf(emp.getDetails());
-//        }
-
+        for (Employee emp : employees) {
+            System.out.printf(emp.getDetails());
+        }
 
         // filtering by department (sales)
         List<Employee> sales = new ArrayList<Employee>();
@@ -32,34 +28,30 @@ public class EmployeeTest {
                 youths.add(emp);
             }
         }
-
-
-//        combines lists
-        // prints all people in sales and add people from other departments that are under 40
-        // It includes duplicates
-//        sales.addAll(youths);
-//        for (Employee emp : sales) {
-//            System.out.printf(emp.getDetails());}
+//        combines lists, prints all people in sales and add people from other departments that are under 40
+//        It includes duplicates
+        sales.addAll(youths);
+        for (Employee emp : sales) {
+            System.out.printf(emp.getDetails());
+        }
 
 //        Removes all people in the youths list
-//        sales.removeAll(youths);
-//        for (Employee emp : sales) {
-////            System.out.printf(emp.getDetails());}
+        sales.removeAll(youths);
+        for (Employee emp : sales) {
+            System.out.printf(emp.getDetails());
+        }
 
+        sales.addAll(youths);
+        Set<Employee> salesSet = new HashSet<Employee>(sales);
+        for (Employee emp : salesSet){
+            System.out.printf(emp.getDetails());
+        }
 
-//        sales.addAll(youths);
-//        Set<Employee> salesSet = new HashSet<Employee>(sales);
-//        for (Employee emp : salesSet){
-//        System.out.
-//
-//        printf(emp.getDetails());
-//        }
-//
-        //Order by name
-//       Collections.sort(employees, new Employee.EmployeeNameComparator());
-//        for (Employee emp : employees){
-//            System.out.printf(emp.getDetails());
-//        }
+//        Order by name
+       Collections.sort(employees, new Employee.EmployeeNameComparator());
+        for (Employee emp : employees){
+            System.out.printf(emp.getDetails());
+        }
 
         //Order by age
         Collections.sort(employees, new Employee.EmployeeAgeComparator());
