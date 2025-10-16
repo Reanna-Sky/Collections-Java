@@ -1,9 +1,6 @@
 package collections;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /*
  * This is a regular collections.Employee class, but contains data for
@@ -104,6 +101,32 @@ public class Employee {
     private static double randomSalary() {
         return 100 * Math.round(R.nextGaussian() * 100.0 + 400.0);
     }
+
+    public static class EmployeeNameComparator implements Comparator<Employee> {
+
+        public int compare(Employee e1, Employee e2) {
+            return e1.getFullname().compareTo(e2.getFullname());
+        }
+    }
+
+    public static class EmployeeAgeComparator implements Comparator<Employee>{
+
+        public int compare(Employee e1, Employee e2) {
+            int difference = e1.getAge() - e2.getAge();
+            if(difference == 0) {
+                return new EmployeeNameComparator().compare(e1, e2);
+            }
+            return difference;
+        }
+    }
+
+
+
+
+
+
+
+
 
     public static List<Employee> getSomeEmployees() {
         List<Employee> employees = new ArrayList<Employee>();

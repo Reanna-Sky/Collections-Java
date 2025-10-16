@@ -28,8 +28,9 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-Collections-Java.iml
-
+Collections.Collections-Java.iml
+Collections.iml
 Loads_of_Employees.iml
-.DS_Store
-/.idea
+
+.idea
+git check-ignore -v .idea/
